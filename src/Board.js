@@ -77,21 +77,21 @@ export default class Board extends Component {
 
     calcNeighbors = (board, x, y) => {
       let neighbors = 0;
-      let options = [[0,-1], [-1,1], [0,1], [1,1], [0,1], [1,-1]];
+      let options = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1]];
 
         for (let i = 0; i < options.length; i++) {
           let opt = options[i];
           let y1 = y + opt[0];
           let x1 = x + opt[1];
-
+      
           if (x1 >= 0 && x1 < this.cols && y1 >= 0 && y1 < this.rows && board[y1][x1]) {
             neighbors++;
           }
-          return neighbors
         }
+        return neighbors
     }
 
-    run = () => {
+    run(){
       let newBoard = this.emptyBoard();
 
       for (let y = 0; y < this.rows; y++) {
