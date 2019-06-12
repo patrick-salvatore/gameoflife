@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Cell from './Cell';
 
 const CELL = 20;
-const w = 800; 
-const h = 600;
+const w = 1000; 
+const h = 700;
 
 export default class Board extends Component {
     constructor() {
@@ -28,6 +28,14 @@ export default class Board extends Component {
       }
 
       this.setState({ cells: this.generateCells() });
+    }
+
+    generateGlider = () => {
+      for (let y = 0; y < this.rows; y++) {
+        for (let x = 0; x < this.cols; x++) {
+          
+        }
+      }
     }
 
     handleClear = () => {
@@ -139,6 +147,7 @@ export default class Board extends Component {
           {this.state.isActive ? <button name='stop' value = 'stop' onClick={this.stopGame}>Stop</button> : 
           <button name='run' value = 'run' onClick={this.gameHandler}>Run</button>}
           <button name='random' value = 'random' onClick={this.handleRandom}>Random</button>
+          <button name='glide' value = 'glider' onClick={this.generateGlider}>Glider</button>
           <button name='clear' value = 'clear' onClick={this.handleClear}>Clear</button>
         </div>
       </div>
